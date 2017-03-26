@@ -45,3 +45,14 @@ DrawerLayout+NavigationView
 ### 图片缩放
 
 [PhotoView](https://github.com/chrisbanes/PhotoView)
+
+### 日志 
+
+[logger](https://github.com/orhanobut/logger)
+
+### 对话框
+
+[material-dialogs](https://github.com/afollestad/material-dialogs)
+
+### 俗名：垂直跑马灯；学名：垂直翻页公告。 http://sunfusheng.com/
+[MarqueeView](https://github.com/sfsheng0322/MarqueeView)
