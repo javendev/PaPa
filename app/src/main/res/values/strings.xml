@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PaPa</string>
+
+    <string name="nav_girl">每日一图</string>
+    <string name="girl_home">首页</string>
+    <string name="girl_tags">分类</string>
+    <string name="girl_setting">个人中心</string>
+
+    <string name="drawer_open">navigation_drawer_open</string>
+    <string name="drawer_close">navigation_drawer_close</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
