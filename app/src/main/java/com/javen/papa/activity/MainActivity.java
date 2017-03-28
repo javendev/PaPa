@@ -1,12 +1,13 @@
 package com.javen.papa.activity;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,7 +25,6 @@ import com.javen.papa.fragment.girl.GirlMainFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,25 +43,26 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     private int mStatusBarColor;
     private int mColor;
-    private int mAlpha = 112;
+    private int mAlpha = 0;
 
     private ActionBarDrawerToggle mDrawerToggle;
 
     private List<Fragment> fragmentList;
+    FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+        fragmentManager = getSupportFragmentManager();
         initActionBar();
         initDrawerToggle();
-        setTbColor();
+
         initNavigationView();
 
         initFragment();
         setItem(0);
-
+        setTbColor();
 
     }
 
@@ -80,9 +81,17 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     private void setItem(int index){
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.id_main,fragmentList.get(index));
-        transaction.commitAllowingStateLoss();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+        Fragment fragment = fragmentList.get(index);
+        if (fragment.isAdded()){
+            ft.show(fragment);
+        }else{
+            ft.add(R.id.id_main,fragment);
+
+        }
+        ft.commitAllowingStateLoss();
+
     }
 
     private void initActionBar() {
@@ -114,10 +123,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
 
     private void setTbColor() {
-        Random random = new Random();
-        mColor = 0xff000000 | random.nextInt(0xffffff);
-        mToolbar.setBackgroundColor(mColor);
-        StatusBarUtil.setColor(this, mColor, mAlpha);
+        StatusBarUtil.setTranslucent(this, 0);
     }
 
     @Override

@@ -21,7 +21,7 @@ public class SplashActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(mContext,MainActivity.class));
+                startActivity(new Intent(mContext,ResideActivity.class));
                 //处理淡出式打开新的 Activity
                 overridePendingTransition(R.anim.fade, R.anim.hold);
                 //左右滑入式
@@ -34,7 +34,6 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void setStatusBar() {
-        StatusBarUtil.setTranslucent(this, StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA);
-        StatusBarUtil.setTranslucent(this, 50);
+        StatusBarUtil.setTranslucent(this, 0);
     }
 }

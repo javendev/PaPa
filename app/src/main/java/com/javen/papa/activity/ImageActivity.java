@@ -35,7 +35,7 @@ public class ImageActivity extends BaseActivity {
 
         // 设置右滑动返回
         initSlidr();
-        StatusBarUtil.setTranslucentForImageView(this, 30, mViewNeedOffset);
+        StatusBarUtil.setTranslucentForImageView(this, 0, mViewNeedOffset);
     }
 
     @Override
