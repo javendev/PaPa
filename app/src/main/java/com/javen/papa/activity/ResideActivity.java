@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.javen.papa.R;
+import com.javen.papa.base.BasesActivity;
 import com.javen.papa.event.SkinChangeEvent;
 import com.javen.papa.fragment.TestFragment;
 import com.javen.papa.fragment.girl.GirlMainFragment;
@@ -49,7 +50,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
-public class ResideActivity extends com.javen.papa.base.BaseActivity implements ColorChooserDialog.ColorCallback {
+public class ResideActivity extends BasesActivity implements ColorChooserDialog.ColorCallback {
     @BindView(R.id.avatar) ImageView mAvatar;
     @BindView(R.id.desc) TextView mDesc;
     @BindView(R.id.all) TextView mAll;

@@ -12,7 +12,7 @@ import com.javen.papa.theme.Theme;
 import com.javen.papa.utils.PreUtils;
 
 
-public class BaseActivity extends AppCompatActivity {
+public class BasesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +89,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected String getName() {
-        return BaseActivity.class.getName();
+        return BasesActivity.class.getName();
     }
 
     @Override
